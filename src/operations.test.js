@@ -32,9 +32,10 @@ describe('operations', () => {
                 expanded: false,
             };
 
-            changeNode(node, updatedNode);
+            const isUpdated = changeNode(node, updatedNode);
 
             expect(node).toEqual(expected);
+            expect(isUpdated).toBeTruthy();
         });
 
         it(`should't change node if ids doesn't match`, () => {
@@ -56,8 +57,10 @@ describe('operations', () => {
                 expanded: true,
             };
 
-            changeNode(node, updatedNode);
+            const isUpdated = changeNode(node, updatedNode);
+
             expect(node).toEqual(expected);
+            expect(isUpdated).toBeFalsy();
         });
     });
 
