@@ -1,7 +1,7 @@
 {
   "name": "virtualized-tree-component",
   "version": "1.1.5",
-  "description": "Tiny, fast react tree-component based on react-virtualized",
+  "description": "A tiny react tree-component based on react-virtualized",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "exports": {
