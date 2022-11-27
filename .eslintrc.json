@@ -1,0 +1,14 @@
+{
+    "extends": ["eslint:recommended", "prettier", "plugin:@typescript-eslint/recommended"],
+    "plugins": ["prettier", "@typescript-eslint"],
+    "rules": {
+      "prettier/prettier": "error",
+      "no-constant-condition": 0
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": "latest"
+    }
+  }
+  

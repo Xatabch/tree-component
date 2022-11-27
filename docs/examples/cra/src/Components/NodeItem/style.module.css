@@ -1,0 +1,26 @@
+.item {
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 0 2px 10px;
+    transition: background-color 200ms ease-in-out;
+}
+
+.item:hover {
+    background-color: rgb(229, 238, 249);
+}
+
+.itemIcon {
+    margin-right: 5px;
+    transform: rotate(-90deg);
+    width: 10px;
+    height: 10px;
+    will-change: transform;
+}
+
+.itemIconExpand {
+    transform: rotate(0deg);
+}
+
+.itemLabelNoIcon {
+    margin-left: 15px;
+}
