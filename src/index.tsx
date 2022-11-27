@@ -16,10 +16,7 @@ export interface TreeProps {
     NodeRenderer?: (node: Node) => React.ReactNode;
 }
 
-export const TreeComponent: React.FC<TreeProps> = function ({
-    nodes,
-    NodeRenderer,
-}) {
+export const TreeComponent: React.FC<TreeProps> = ({ nodes, NodeRenderer }) => {
     const cache = new CellMeasurerCache({
         fixedWidth: true,
         minHeight: 20,
