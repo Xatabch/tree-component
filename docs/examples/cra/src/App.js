@@ -11,7 +11,7 @@ const Nodes = constructTree(MAX_DEEPNESS, MAX_NUMBER_OF_CHILDREN, MIN_NUMBER_OF_
 function App() {
   return (
 	<div className='App'>
-		<TreeComponent nodes={Nodes} />
+		<TreeComponent nodes={Nodes}/>
 	</div>
 	);
 }

@@ -8,7 +8,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "5.0.1",
-    "virtualized-tree-component": "^1.1.8"
+    "virtualized-tree-component": "^1.1.13"
   },
   "scripts": {
     "start": "react-scripts start",

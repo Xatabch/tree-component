@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useState } from 'react';
 import {
     AutoSizer,
     List,
@@ -6,10 +6,11 @@ import {
     CellMeasurer,
     ListRowRenderer,
 } from 'react-virtualized';
-import { useTree } from './hooks/useTree';
 import { Node, Tree } from './interfaces';
 import { getFlattenedTreePaths, getNodeAt, getNodeDeepness } from './selectors';
 import { DefaultNodeItem } from './DefaultNodeItem/DefaultNodeItem';
+import { updateTreeNode } from './operations';
+import _ from 'lodash';
 
 export interface TreeProps {
     nodes: Tree;
@@ -26,29 +27,25 @@ export const TreeComponent: React.FC<TreeProps> = ({ nodes, NodeRenderer }) => {
         minHeight: 20,
     });
 
-    const [tree, updateTree] = useTree(nodes);
+    const [tree, setTree] = useState(nodes);
+
     const flattenedTree = getFlattenedTreePaths(tree);
 
-    const handleChange = useCallback(
-        (node: Node) => {
-            updateTree(tree, node);
-        },
-        [tree]
-    );
+    const handleChange = (updatedNode: Node) => {
+        updateTreeNode(tree, updatedNode);
+        setTree(_.cloneDeep(tree));
+    };
 
-    const getRowCount = useCallback(() => {
+    const getRowCount = () => {
         return flattenedTree.length;
-    }, [tree]);
+    };
 
-    const getNode = useCallback(
-        (index: number) => {
-            return {
-                node: getNodeAt(tree, flattenedTree, index),
-                deepness: getNodeDeepness(flattenedTree, index),
-            };
-        },
-        [tree]
-    );
+    const getNode = (index: number) => {
+        return {
+            node: getNodeAt(tree, flattenedTree, index),
+            deepness: getNodeDeepness(flattenedTree, index),
+        };
+    };
 
     const measureRowRenderer: ListRowRenderer = ({
         key,
