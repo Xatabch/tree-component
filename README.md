@@ -1,3 +1,5 @@
+![workflow](https://github.com/xatabch/tree-component/actions/workflows/deployment.yml/badge.svg)
+
 # Virtualized tree component
 
 A tiny virtualized react tree component based on [react-virtualized](https://bvaughn.github.io/react-virtualized/#/components/List).

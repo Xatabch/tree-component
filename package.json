@@ -10,6 +10,7 @@
   "scripts": {
     "size-limit": "size-limit",
     "build": "rm -rf dist && parcel build",
+    "ci": "npm install",
     "lint": "eslint src/*",
     "prepublishOnly": "npm run size-limit && npm run build"
   },
