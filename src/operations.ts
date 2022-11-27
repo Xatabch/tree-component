@@ -11,6 +11,8 @@ export const changeNode = (node: Node, updateNode: Node) => {
 
     if (node.id === updateNode.id) {
         node.expanded = updateNode.expanded;
+
+        return true;
     }
 };
 
@@ -28,7 +30,11 @@ export const updateTreeNode = (tree: Tree, updatedNode: Node) => {
 
     while ((curRef = memory.pop())) {
         while (true) {
-            changeNode(curRef, updatedNode);
+            const isNodeUpdated = changeNode(curRef, updatedNode);
+
+            if (isNodeUpdated) {
+                return;
+            }
 
             if (!curRef?.children?.length) break;
 
